@@ -1,0 +1,71 @@
+header{
+     background-image:url("/images/fundoLaranja.png") ;
+    border-color: #FD3A2D;
+    color: blue;
+    margin-bottom: 50px;
+   height: 80px;
+  
+    text-align: center;
+    border:solid 5px white;
+}
+body{
+    background-image:url("/images/azul.png") ;
+     background-size: cover;
+     text-align: left;
+    
+}
+a{
+   text-decoration: none;
+   color:blue;
+  margin-left: 42%;
+  font-size: 20px;
+   
+}
+a:hover{
+    color: chartreuse;
+}
+ #entrarbtn ,#cadastrarbtn:hover {
+            background-color: chartreuse;
+        }
+        h2{
+            color: white;
+            text-align: center;
+        }
+        #entrarbtn, #cadastrarbtn, #agendarbtn{
+            width: 150px;
+            height: 50px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border: solid 2px white;
+            font-size: 20px;
+            font-weight: bold; 
+             border-radius: 5px;
+              color: white;
+              background-color: blue;
+        }
+        label{
+            font-size: 20px;
+            font-weight: bold; 
+           color: ghostwhite;
+        }
+        
+        #login{
+            text-align: center;
+            margin-top: 70px;
+           margin-left: 40%;
+            
+             justify-content: center;
+             max-width: 20%;
+        }
+        #cadastroForm{
+            max-width: 30%;
+            margin-left: 50px;
+        }
+        table{
+            text-align: center;
+            color: #ffffff
+        }
+        td{
+            text-align: center;
+            color: blue;
+        }

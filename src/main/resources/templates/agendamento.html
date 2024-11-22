@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Agenda</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">  
+                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> 
+                     
+                    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+                        </head>   
+                        <body>
+                            <header>
+
+
+                                <h1 <span> <img src="/images/saude1.png" alt="simbolo saúde" id="saudeimg"/></span>Sistema TDS Saúde</h1>
+
+
+                            </header>
+
+                            <h2 <span ><img src="/images/agendar.png" alt="agenda"/></span>   Agendamento</h2>
+
+                            <div class="container">
+                                <form th:action="@{/salvar-consulta}" method="POST" th:object="${consulta}">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label for="idUsuario" class="form-label">Código do usuário: </label>
+                                            <input type="text"  id="idUsuario" class="form-control" th:field="${consulta.usuario.id}">
+                                                <label for="profissional" class="form-label">Profissional: </label>
+                                                <select id="profissional" class="form-select" th:field="${consulta.profissional}">
+                                                     <option value="Selecione" >Selecione</option>
+                                                    <option value="Dra Larissa">Dra Larissa</option>
+                                                    <option value="Dr Pedro">Dr Pedro</option>
+                                                    <option value="Enfermeira Analice">Enfermeira Analice</option>
+                                                </select>
+
+                                                <label for="tipo" class="form-label">Tipo: </label>
+                                                <select id="tipo" class="form-select" th:field="${consulta.tipo}">
+                                                    <option value="Selecione" >Selecione</option>
+                                                    <option value="rotina">Consulta rotina</option>
+                                                    <option value="retorno">Retorno</option>
+                                                    <option value="puericultura">Puericultura</option>
+                                                    <option value="prenatal">Pré-natal</option>
+                                                    <option value="preventivo">Preventivo</option>
+                                                </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="data" class="form-label">Data: </label>
+                                            <input type="date"  id="data" class="form-control" th:field="${consulta.data}">
+                                                <label for="hora" class="form-label"> Horário: </label>
+                                                <select id="hora" class="form-select" th:field="${consulta.hora}">
+                                                    <option value="Selecione" >Selecione</option>
+                                                    <option value="07:00">07:00</option>
+                                                    <option value="07:30">07:30</option>
+                                                    <option value="08:00">08:00</option>
+                                                    <option value="13:00">13:00</option>
+                                                    <option value="13:30">13:30</option>
+                                                    <option value="14:00">14:00</option>
+                                                </select>
+
+                                        </div>
+
+                                    </div>
+
+                                    <button type="submit" id="agendarbtn" class="btn btn-primary">Agendar</button>
+
+
+                                </form>
+                            </div>
+                           <script th:src="@{/js/saude.js}"></script>
+              </body>
+              </html>
