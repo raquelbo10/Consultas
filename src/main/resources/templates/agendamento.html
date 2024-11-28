@@ -24,27 +24,37 @@
                             <h2 <span ><img src="/images/agendar.png" alt="agenda"/></span>   Agendamento</h2>
 
                             <div class="container">
+                                <div class="col-sm-6">
+                                <form th:action="@{/pesquisar-cpf}" method="GET" th:object="${usuario}">
+                                <label for="idUsuario" class="form-label">Insira seu CPF: </label>
+                                            <input type="text"  id="cpfUsuario" class="form-control" th:field="${usuario.cpf}" >
+                                                <br>  
+                                                <button type="submit" id="pesquisarbtn" class="btn btn-primary">Buscar</button>
+                                                </form>
+                                </div>
+                                <br>
+                                    <br>
                                 <form th:action="@{/salvar-consulta}" method="POST" th:object="${consulta}">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <label for="idUsuario" class="form-label">Código do usuário: </label>
-                                            <input type="text"  id="idUsuario" class="form-control" th:field="${consulta.usuario.id}">
+                                             <label for="usuarioId" class="form-label">ID do Usuário: </label>
+                                             <input type="text" name="id" id="usuarioId" readonly="true" class="form-control" th:field="${consulta.usuario}">  
                                                 <label for="profissional" class="form-label">Profissional: </label>
                                                 <select id="profissional" class="form-select" th:field="${consulta.profissional}">
-                                                     <option value="Selecione" >Selecione</option>
-                                                    <option value="Dra Larissa">Dra Larissa</option>
-                                                    <option value="Dr Pedro">Dr Pedro</option>
-                                                    <option value="Enfermeira Analice">Enfermeira Analice</option>
+                                                     <option value="Selecione" th:field="${consulta.profissional}">Selecione</option>
+                                                    <option value="Dra Larissa" th:field="${consulta.profissional}">Dra Larissa Couto</option>
+                                                    <option value="Dr Pedro" th:field="${consulta.profissional}">Dr Pedro Magalhães Lima</option>
+                                                    <option value="Enfermeira Analice" th:field="${consulta.profissional}">Enfermeira Analice Maria de Oliveira</option>
                                                 </select>
 
                                                 <label for="tipo" class="form-label">Tipo: </label>
-                                                <select id="tipo" class="form-select" th:field="${consulta.tipo}">
-                                                    <option value="Selecione" >Selecione</option>
-                                                    <option value="rotina">Consulta rotina</option>
-                                                    <option value="retorno">Retorno</option>
-                                                    <option value="puericultura">Puericultura</option>
-                                                    <option value="prenatal">Pré-natal</option>
-                                                    <option value="preventivo">Preventivo</option>
+                                                <select id="tipo" class="form-select" >
+                                                    <option value="Selecione" th:field="${consulta.tipo}">Selecione</option>
+                                                    <option value="rotina" th:field="${consulta.tipo}">Consulta rotina</option>
+                                                    <option value="retorno" th:field="${consulta.tipo}">Retorno</option>
+                                                    <option value="puericultura" th:field="${consulta.tipo}">Puericultura</option>
+                                                    <option value="prenatal" th:field="${consulta.tipo}">Pré-natal</option>
+                                                    <option value="preventivo" th:field="${consulta.tipo}">Preventivo</option>
                                                 </select>
                                         </div>
                                         <div class="col-sm-6">
@@ -52,13 +62,13 @@
                                             <input type="date"  id="data" class="form-control" th:field="${consulta.data}">
                                                 <label for="hora" class="form-label"> Horário: </label>
                                                 <select id="hora" class="form-select" th:field="${consulta.hora}">
-                                                    <option value="Selecione" >Selecione</option>
-                                                    <option value="07:00">07:00</option>
-                                                    <option value="07:30">07:30</option>
-                                                    <option value="08:00">08:00</option>
-                                                    <option value="13:00">13:00</option>
-                                                    <option value="13:30">13:30</option>
-                                                    <option value="14:00">14:00</option>
+                                                    <option value="Selecione" th:field="${consulta.hora}">Selecione</option>
+                                                    <option value="07:00" th:field="${consulta.hora}">07:00</option>
+                                                    <option value="07:30" th:field="${consulta.hora}">07:30</option>
+                                                    <option value="08:00" th:field="${consulta.hora}">08:00</option>
+                                                    <option value="13:00" th:field="${consulta.hora}">13:00</option>
+                                                    <option value="13:30" th:field="${consulta.hora}">13:30</option>
+                                                    <option value="14:00" th:field="${consulta.hora}">14:00</option>
                                                 </select>
 
                                         </div>

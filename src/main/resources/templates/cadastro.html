@@ -20,11 +20,16 @@
         Sistema TDS Saúde
     </h1>
 </header>
-    <nav>
-    <a th:href="@{/Login}">Voltar para a página de login</a>
-    <a th:href="@{/Listas}">Listas</a>
-
-   </nav> 
+    <!-- <div class="container mt-5"> 
+        <div class="dropdown"> 
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> Menu </button> 
+            <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" th:href="@{/Login}">Voltar para a página de login</a></li> 
+                <li><a class="dropdown-item" th:href="@{/Listas}">Listas</a></li>
+               
+            </ul> 
+        </div> -->
+    
 
 <h2>Bem vindo(a)</h2>
 
@@ -35,28 +40,28 @@
         <input type="text" id="nome" class="form-control" th:field="${usuario.nome}" 
                placeholder="Digite seu nome" required minlength="2">
 
-        <!-- Sobrenome -->
+       
         <label for="sobrenome" class="form-label">Sobrenome:</label>
         <input type="text" id="sobrenome" class="form-control" th:field="${usuario.sobrenome}" 
                placeholder="Digite seu sobrenome" required minlength="2">
             
 
-        <!-- CPF -->
+       
         <label for="cpf" class="form-label">CPF:</label>
         <input type="text" id="cpf" class="form-control" th:field="${usuario.cpf}" 
                placeholder="xxx.xxx.xxx-xx" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" required>
     </div>
 
     <div class="mb-3">
-        <!-- Gênero -->
+        
         <label>
-            <input type="radio" id="masculino" name="genero" value="masculino" required> Masculino
+            <input type="radio"  name="genero" value="masculino" th:field="${usuario.genero}" required> Masculino
         </label><br>
         <label>
-            <input type="radio" id="feminino" name="genero" value="feminino" required> Feminino
+            <input type="radio"  name="genero" value="feminino" th:field="${usuario.genero}" required> Feminino
         </label><br>
 
-        <!-- Telefone -->
+        
         <label for="tel" class="form-label">Telefone:</label>
         <input type="tel" id="tel" class="form-control" th:field="${usuario.tel}" 
                placeholder="(xx)xxxxx-xxxx" pattern="^\(\d{2}\)\d{4,5}-\d{4}$" required>
@@ -64,23 +69,24 @@
 
     <div class="mb-3">
         <label for="user" class="form-label">Usuário:</label>
-        <input type="text" id="user" class="form-control" th:field="${usuario.user}" 
-        <!-- Senha -->
+        <input type="text" id="user" class="form-control" th:field="${usuario.user}"
+               required minlength="6">
+        
         <label for="senha" class="form-label">Senha:</label>
         <input type="password" id="senha" class="form-control" th:field="${usuario.senha}" 
                placeholder="Senha (mín. 6 caracteres)" required minlength="6">
 
-        <!-- Confirmar Senha -->
+        
         <label for="senha1" class="form-label">Confirme sua senha:</label>
         <input type="password" id="senha1" class="form-control" 
                placeholder="Repita a senha" required minlength="6">
     </div>
 
-    <!-- Botão de Cadastrar -->
+    
     <input type="submit" id="cadastrarbtn" value="Cadastrar" class="btn btn-primary">
 </form>
 
-<!-- Scripts -->
+
 <script th:src="@{/js/saude.js}"></script>
 </body>
 </html>

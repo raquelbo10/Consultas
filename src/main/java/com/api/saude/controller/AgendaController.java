@@ -2,7 +2,7 @@
 package com.api.saude.controller;
 
 import com.api.saude.model.Consulta;
-import com.api.saude.model.Profissional;
+
 import com.api.saude.model.Usuario;
 import java.util.ArrayList;
 import java.util.List;

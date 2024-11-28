@@ -25,9 +25,9 @@
                             <h2>Bem vindo(a)</h2>
                             <div id="login">
                                 
-                                <form th:action="@{/Login}"  method="GET" id="loginForm">
-                                    <label for="usuario" class="form-label"><span ><img src="/images/usuario.png" alt="usuario"/></span>  Usuário: </label>
-                                    <input type="text" name="user" id="usuario" class="form-control" placeholder="Digite seu usuário" required>
+                                <form th:action="@{/usuario/buscar}"  method="GET" id="loginForm">
+                                    <label for="user" class="form-label"><span ><img src="/images/usuario.png" alt="usuario"/></span>  Usuário: </label>
+                                    <input type="text" name="user" id="user" class="form-control" placeholder="Digite seu usuário" required>
 
                                         <label for="senha" class="form-label"><span ><img src="/images/senha.png" alt="cadeado"/></span>  Senha: </label>
                                         <input type="password" name="senha" id="senha" class="form-control" placeholder="Digite sua senha" required>

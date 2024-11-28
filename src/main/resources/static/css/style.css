@@ -16,7 +16,7 @@ body{
 }
 a{
    text-decoration: none;
-   color:blue;
+   color:buttonface;
   margin-left: 42%;
   font-size: 20px;
    
@@ -67,5 +67,9 @@ a:hover{
         }
         td{
             text-align: center;
-            color: blue;
+            color: whitesmoke;
         }
+       .dropdown-menu {
+        left: auto; 
+        right: 0;
+       }

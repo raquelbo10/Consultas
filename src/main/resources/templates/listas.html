@@ -17,35 +17,66 @@
                             <header>
 
 
-                                <h1 <span class=""> <img src="/images/saude1.png" alt="simbolo saúde" id="saudeimg"/></span>Sistema TDS Saúde</h1>
+                                <h1> <span class=""> <img src="/images/saude1.png" alt="simbolo saúde" id="saudeimg"/></span>Sistema TDS Saúde</h1>
 
 
                             </header>
+                            <div id="dados-usuario" class="card mt-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Dados do Usuário</h5>
+
+                                                <form id="form-editar-usuario">
+                                                    <div class="mb-3">
+                                                        <label for="usuario-id" class="form-label" >ID</label>
+                                                        <input type="text" id="usuario-id" class="form-control" disabled />
+                                                        <label for="usuario-cpf" class="form-label" >CPF</label>
+                                                        <input type="text" id="usuario-cpf" class="form-control" disabled />
+                                                        <label for="usuario-user" class="form-label" >Usuário</label>
+                                                        <input type="text" id="usuario-user" class="form-control" disabled />
+                                                        <label for="usuario-senha" class="form-label" >Senha</label>
+                                                        <input type="password" id="usuario-senha" class="form-control" disabled />
+                                                        <label for="usuario-genero" class="form-label" >Gênero</label>
+                                                        <input type="text" id="usuario-genero" class="form-control" disabled />
+
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="usuario-nome" class="form-label">Nome</label>
+                                                        <input type="text" id="usuario-nome" class="form-control" />
+                                                        <label for="usuario-sobrenome" class="form-label">Sobrenome</label>
+                                                        <input type="text" id="usuario-sobrenome" class="form-control" />
+                                                        <label for="usuario-tel" class="form-label">Telefone</label>
+                                                        <input type="text" id="usuario-tel" class="form-control" />
+
+                                                    </div>
+
+                                                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                                    <button type="button" id="fechar-dados" class="btn btn-secondary">Fechar</button>
+                                                </form>
+                                                </div>
+                                </div>
                             <h2>Usuários cadastrados</h2>
-                            <br><!-- comment -->
+                            <br>
                                 <br>
-                                    <table class="table table-bordered" id="tabela">
+                                    <table class="table table-bordered table-striped" id="tabelaUsuarios">
 
                                         <thead>
-                                            <div  class="col-sm-12">
 
+                                            <tr >
+                                                <td class="col-sm-1">Id</td>
+                                                <td class="col-sm-2">Nome</td>
+                                                <td class="col-sm-2">Sobrenome</td>
+                                                <td class="col-sm-1">CPF</td>
+                                                <td class="col-sm-1">Gênero</td>
+                                                <td class="col-sm-1">Tel</td>
+                                                <td class="col-sm-2">Usuario</td>
+                                                <td class="col-sm-2">Ações</td>
 
+                                            </tr>
 
-
-                                                <tr >
-                                                    <td class="col-sm-1">Id</td>
-                                                    <td class="col-sm-2">Nome</td>
-                                                    <td class="col-sm-2">Sobrenome</td>
-                                                    <td class="col-sm-2">CPF</td>
-                                                    <td class="col-sm-1">Gênero</td>
-                                                    <td class="col-sm-2">Tel</td>
-                                                    <td class="col-sm-2">Usuario</td>
-
-                                                </tr>
-                                            </div>
                                         </thead>
                                         <tbody >
-                                            <tr  id:"dados" th:each ="usuario: ${usuarios}" >
+                                            <tr  id:"dados" th:each="usuario : ${usuarios}" >
                                                 <td  th:text= "${usuario.id}"></td>
                                                 <td  th:text= "${usuario.nome}"></td>
                                                 <td th:text= "${usuario.sobrenome}"></td>
@@ -53,6 +84,11 @@
                                                 <td  th:text= "${usuario.genero}"></td>
                                                 <td  th:text= "${usuario.tel}"></td>
                                                 <td th:text= "${usuario.user}"></td>
+                                                <td id="colunaLink">
+                                                    <a id="atualizarLink"  th:href="@{/usuario/atualizar/${usuario.id}}">Atualizar</a>
+                                                    <a id="excluirLink" th:href="@{/usuario/excluir/${usuario.id}}">Excluir</a>
+
+                                                </td>
 
 
 
@@ -60,44 +96,49 @@
                                         </tbody>
                                     </table>
                                     <hr>
-                                        <h2>Consultas Agendadas</h2>
-                                        <br>
-                                            <br>
+                                        
+                                                <br>
+                                                    <h2>Consultas Agendadas</h2>
+                                                    <br>
+                                                        <br>
 
-                                                <table class="table table-bordered" id="tabela">
+                                                            <table class="table table-bordered table-striped" id="tabelaConsultas">
 
-                                                    <thead>
-                                                        <div  class="col-sm-12">
-
-
-
-
-                                                            <tr >
-                                                                <td class="col-sm-2">Data</td>
-                                                                <td class="col-sm-1">Horário</td>
-                                                                <td class="col-sm-1">Id</td>
-                                                                <td class="col-sm-3">Paciente</td>
-                                                                <td class="col-sm-2">Profissional</td>                                                                                
-                                                                <td class="col-sm-1">Tipo Consulta</td>
-                                                                <td class="col-sm-1">Cancelar</td>
-
-                                                            </tr>
-                                                        </div>
-                                                    </thead>
-                                                    <tbody >
-                                                        <tr  id:"dados" th:each ="consulta: ${consultas}" >
-                                                            <td  th:text= "${consulta.data}"></td>
-                                                            <td  th:text= "${consulta.hora}"></td>
-                                                            <td th:text= "${consulta.id}"></td>
-                                                            <td th:text= "${consulta.usuario.nome} + ${consulta.usuario.sobrenome}"></td>
-                                                            <td  th:text= "${consulta.profissional}"></td>
-                                                            <td th:text= "${consulta.tipo}"></td>
+                                                                <thead>
 
 
 
 
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                </body>
-                                                </html>
+
+                                                                    <tr >
+                                                                        <td class="col-sm-2">Id</td>
+                                                                        <td class="col-sm-1">Data</td>
+                                                                        <td class="col-sm-1">Hora</td>
+                                                                        <td class="col-sm-3">Tipo Consulta</td>
+                                                                        <td class="col-sm-2">Profissional</td>                                                                                
+                                                                        <td class="col-sm-2">Usuario</td>
+                                                                        <td class="col-sm-1">Cancelar</td>
+
+                                                                    </tr>
+
+                                                                </thead>
+                                                                <tbody >
+                                                                    <tr  id:"dados" th:each="consulta : ${consultas}" >
+                                                                        <td th:text= "${consulta.id}"></td>
+                                                                        <td  th:text= "${consulta.data}"></td>
+                                                                        <td  th:text= "${consulta.hora}"></td>
+                                                                        <td th:text= "${consulta.tipo}"></td>
+                                                                        <td  th:text= "${consulta.profissional}"></td>
+                                                                        <td th:text="${consulta.usuario.nome} + ' ' + ${consulta.usuario.sobrenome}"></td>
+
+
+                                                                        <a id="excluirLink" th:href="@{/consulta/excluir/${consulta.id}}">Excluir</a>
+
+
+
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <script th:src="@{/js/saude.js}"></script>
+                                                            </body>
+                                                            </html>
