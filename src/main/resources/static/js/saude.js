@@ -146,9 +146,9 @@ $("#dados-usuario").hide();
             data: JSON.stringify(usuario),
             success: function (usuarioAtualizado) {
                 console.log("Usuário atualizado: ", usuarioAtualizado);
-
+                $("#dados-usuario").hide(); 
                 listarUsuarios();
-                
+                alert("Usuário atualizado com sucesso!");
             },
             error: function (error) {
                 console.error("Erro ao atualizar usuário: ", error);
@@ -206,8 +206,8 @@ $("#dados-usuario").hide();
         event.preventDefault();
         const id = parseInt($("#usuario-id").val());
         const usuario = {
-            id:id,
-            nome: $("# usuario-nome").val(),
+            
+            nome: $("#usuario-nome").val(),
             sobrenome: $("#usuario-sobrenome").val(),
             genero: $("#usuariogenero").val(),
             cpf: $("#usuario-cpf").val(),

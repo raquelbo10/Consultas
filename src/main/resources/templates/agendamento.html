@@ -24,7 +24,7 @@
                             <h2 <span ><img src="/images/agendar.png" alt="agenda"/></span>   Agendamento</h2>
 
                             <div class="container">
-                                <div class="col-sm-6">
+                                <div class="col-sm-3">
                                 <form th:action="@{/pesquisar-cpf}" method="GET" th:object="${usuario}">
                                 <label for="idUsuario" class="form-label">Insira seu CPF: </label>
                                             <input type="text"  id="cpfUsuario" class="form-control" th:field="${usuario.cpf}" >

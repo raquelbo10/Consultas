@@ -40,13 +40,13 @@ public class UsuarioService {
     public Usuario atualizarUsuario(Integer id, Usuario usuario){
         Usuario usuarioEncontrado = buscarUsuarioPorId(id);
         usuarioEncontrado.setId(id);
-        usuario.setNome(usuario.getNome());
-        usuario.setSobrenome(usuario.getSobrenome());
-        usuario.setUser(usuario.getUser());
-        usuario.setSenha(usuario.getSenha());
-        usuario.setCpf(usuario.getCpf());
-        usuario.setGenero(usuario.getGenero());
-        usuario.setTel(usuario.getTel());
+        usuarioEncontrado.setNome(usuario.getNome());
+        usuarioEncontrado.setSobrenome(usuario.getSobrenome());
+        usuarioEncontrado.setUser(usuario.getUser());
+        usuarioEncontrado.setSenha(usuario.getSenha());
+        usuarioEncontrado.setCpf(usuario.getCpf());
+        usuarioEncontrado.setGenero(usuario.getGenero());
+        usuarioEncontrado.setTel(usuario.getTel());
         
         usuarioRepository.save(usuarioEncontrado);
         return usuarioEncontrado;
