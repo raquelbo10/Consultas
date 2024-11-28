@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>saude</name>
 	<description>API REST de projeto de consultas</description>
+        <packaging>war</packaging>
 	<url/>
 	<licenses>
 		<license/>
